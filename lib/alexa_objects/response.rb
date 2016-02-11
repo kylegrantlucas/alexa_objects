@@ -24,30 +24,30 @@ module AlexaObjects
     def with_card
       {
         "version" => "2.0",
-        "sessionAttributes" =>  
+        "sessionAttributes" => @session_attributes,
         "response" => {
           "outputSpeech" => {
-            "type"=> speech_type,
-            "#{text_type}"=> spoken_response
+            "type" => speech_type,
+            "#{text_type}" => spoken_response
           },
-          "card"=> {
-            "type"=> "Simple",
-            "title"=> card_title,
-            "content"=> card_content
+          "card" => {
+            "type" => "Simple",
+            "title" => card_title,
+            "content" => card_content
           },
-          "reprompt"=> {
-            "outputSpeech"=> {
-              "type"=> speech_type,
-              "text"=> reprompt_text
+          "reprompt" => {
+            "outputSpeech" => {
+              "type" => speech_type,
+              "text" => reprompt_text
             }
           },
-          "shouldEndSession"=> end_session 
+          "shouldEndSession" => end_session 
         }
-      }.merge(@session_attributes)
+      }
     end
 
     def link_card
-      self.with_card.tap { |hs| hs[:response][:card] = {"type": "LinkAccount"} }
+      self.with_card.tap { |hs| hs[:response][:card] = {"type" => "LinkAccount"} }
     end
 
     def without_card

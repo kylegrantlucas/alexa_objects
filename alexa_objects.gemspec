@@ -5,7 +5,7 @@ require 'alexa_objects/version'
 
 Gem::Specification.new do |spec|
   spec.name          = "alexa_objects"
-  spec.version       = HaloStats::VERSION
+  spec.version       = AlexaObjects::VERSION
   spec.authors       = ["Kyle Lucas"]
   spec.email         = ["kglucas93@gmail.com"]
   spec.summary       = %q{A pairing of objects for parsing Amazon Echo/Alexa skill requests.}
