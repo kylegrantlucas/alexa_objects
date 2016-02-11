@@ -51,7 +51,7 @@ module AlexaObjects
     end
 
     def without_card
-      self.with_card.tap { |hs| hs[:response].delete("card") }
+      self.with_card.tap { |hs| hs["response"].delete("card") }
     end
   end
 end
