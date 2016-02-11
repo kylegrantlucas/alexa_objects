@@ -135,3 +135,5 @@ build/
 .rvmrc
 
 .idea
+
+Gemfile.lock
