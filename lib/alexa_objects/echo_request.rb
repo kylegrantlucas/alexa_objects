@@ -7,7 +7,7 @@ module AlexaObjects
     def initialize(response_hash)
       @attributes = response_hash["session"]["attributes"] ? response_hash["session"]["attributes"] : {}
 
-      session = response_hash["request"]
+      session = response_hash["session"]
       request = response_hash["request"]
 
       if session
