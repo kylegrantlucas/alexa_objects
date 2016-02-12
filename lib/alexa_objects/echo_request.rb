@@ -5,12 +5,10 @@ module AlexaObjects
     alias :session_new? :session_new
 
     def initialize(response_hash)
-      @attributes = response_hash["session"]["attributes"] ? response_hash["session"]["attributes"] : {}
-
       session = response_hash["session"]
       request = response_hash["request"]
-
       if session
+        @attributes = session["attributes"] ? session["attributes"] : {}
         @user_id = session["user"]["userId"] if session["user"]
         @access_token = session["user"]["accessToken"] if session["user"]
         @application_id = session["application"]["applicationId"] if session["application"]
