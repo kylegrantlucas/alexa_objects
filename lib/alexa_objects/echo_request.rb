@@ -11,9 +11,9 @@ module AlexaObjects
       request = response_hash["request"]
 
       if session
-        @user_id = session["user"]["userId"]
-        @access_token = session["user"]["accessToken"]
-        @application_id = session["application"]["applicationId"]
+        @user_id = session["user"]["userId"] if session["user"]
+        @access_token = session["user"]["accessToken"] if session["user"]
+        @application_id = session["application"]["applicationId"] if session["application"]
       end
 
       if request
@@ -22,8 +22,8 @@ module AlexaObjects
         @session_new = request["new"]
 
         if request["intent"]
-          @intent_name  =  request["intent"]["name"]
-          @slots      = build_struct(request["intent"]["slots"])
+          @intent_name  =  request["intent"]["name"] if request["intent"]
+          @slots      = build_struct(request["intent"]["slots"]) if request["intent"]
         end
       end
     end
