@@ -1,3 +1,4 @@
+require 'recursive-open-struct'
 module AlexaObjects
   class EchoRequest
     attr_reader :intent_name, :slots, :timestamp, :request_type, :session_new, :user_id, :access_token, :application_id
@@ -44,9 +45,7 @@ module AlexaObjects
 
     private 
     def build_struct(hash)
-      if hash.nil?
-        nil
-      else
+      unless hash.nil?
         slot_names = hash.keys.map {|k| k.to_sym.downcase }
         slot_values = hash.values.map { |v| v["value"] }
         Struct.new(*slot_names).new(*slot_values)
