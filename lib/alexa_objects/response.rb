@@ -21,7 +21,7 @@ module AlexaObjects
       @session_attributes[key] << value if @session_attributes[key]
     end
 
-    def to_hash(with_card: false)
+    def to_hash(with_card=false)
       hash = {
         "version" => "2.0",
         "sessionAttributes" => @session_attributes,
@@ -49,11 +49,11 @@ module AlexaObjects
     end
 
     def link_card
-      self.hash(with_card: true).tap { |hs| hs["response"]["card"] = {"type" => "LinkAccount"} }
+      self.hash(true).tap { |hs| hs["response"]["card"] = {"type" => "LinkAccount"} }
     end
 
-    def to_json(with_card: false)
-      return self.to_hash(with_card: with_card).to_json
+    def to_json(with_card=false)
+      return self.to_hash(with_card).to_json
     end
   end
 end
