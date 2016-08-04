@@ -1,4 +1,4 @@
-# AlexaHalo
+# Alexa Objects
 [![Gem Version](https://badge.fury.io/rb/alexa_objects.svg)](http://badge.fury.io/rb/alexa_objects)
 [![Code Climate](https://codeclimate.com/github/kylegrantlucas/alexa_objects/badges/gpa.svg)](https://codeclimate.com/github/kylegrantlucas/alexa_objects) 
 
